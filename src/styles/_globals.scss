@@ -18,7 +18,7 @@ html {
 
 body {
 	font-size: 1.6rem;
-	min-height: 500vh;
+	min-height: 1000vh;
 	background-color: var(--bg);
 	color: var(--fg);
 }
@@ -87,7 +87,7 @@ input {
 					cursor: pointer;
 
 					&::before {
-						content: "";
+						content: '';
 						position: absolute;
 						border-top: 5px solid transparent;
 						border-bottom: 5px solid transparent;
@@ -109,6 +109,11 @@ input {
 			}
 		}
 	}
+}
+
+.circular-text {
+	position: absolute;
+	right: 5%;
 }
 
 .hero-section {
@@ -167,7 +172,24 @@ input {
 			padding-inline: 40px;
 
 			&-image {
+				overflow: hidden;
 				position: relative;
+
+				span {
+					position: absolute;
+					left: 0;
+					top: -1.6em;
+					font-family: var(--font-melodrama);
+					font-size: 2rem;
+					font-weight: 600;
+					text-transform: uppercase;
+				}
+
+				&-inner {
+					width: 150%;
+					height: 100%;
+					position: relative;
+				}
 
 				&:nth-child(1) {
 					grid-column: 1 / 4;
