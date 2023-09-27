@@ -1,37 +1,17 @@
-const titleItem = {
-	initial: {
-		y: 0,
-	},
-	animate: {
-		y: 0,
-		staggerChildren: 0.07,
-	},
-};
+"use client";
+
+import useLocoScroll from "@/hooks/useLocoScroll";
+import { motion } from "framer-motion";
+import HeroSection from "./HeroSection";
+import GallerySection from "./GallerySection";
 
 export default function Home() {
+	useLocoScroll();
+
 	return (
-		<main>
-			<section className='hero-section'>
-				<div className='container'>
-					<h1 className='hero-title'>
-						<div>
-							{'DISCOVER'.split('').map((l) => (
-								<span>{l}</span>
-							))}
-						</div>
-						<div>
-							{"WORLD'S BEST".split('').map((l) => (
-								<span>{l}</span>
-							))}
-						</div>
-						<div>
-							{'JEWELLERY'.split('').map((l) => (
-								<span>{l}</span>
-							))}
-						</div>
-					</h1>
-				</div>
-			</section>
-		</main>
+		<motion.main initial='initial' animate='animate'>
+			<HeroSection />
+			<GallerySection />
+		</motion.main>
 	);
 }

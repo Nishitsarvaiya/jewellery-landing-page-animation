@@ -1,24 +1,31 @@
+"use client";
+
+import { fadeInDown } from "@/lib/motion-animations";
+import { motion } from "framer-motion";
+
 export default function Header() {
 	return (
-		<header className='header'>
+		<motion.header className='header' initial='initial' animate='animate'>
 			<div className='container'>
 				<div className='header-wrapper'>
-					<div className='logo'>
+					<motion.div className='logo' variants={fadeInDown}>
 						<div>SERA</div>
 						<div>Fine Jewellery</div>
-					</div>
+					</motion.div>
 					<nav className='nav' role='navigation'>
 						<ul>
-							<li className='--active'>Home</li>
-							<li>About</li>
+							<motion.li className='--active' variants={fadeInDown}>
+								Home
+							</motion.li>
+							<motion.li variants={fadeInDown}>About</motion.li>
 						</ul>
 						<ul>
-							<li>Collection</li>
-							<li>Contact</li>
+							<motion.li variants={fadeInDown}>Collection</motion.li>
+							<motion.li variants={fadeInDown}>Contact</motion.li>
 						</ul>
 					</nav>
 				</div>
 			</div>
-		</header>
+		</motion.header>
 	);
 }
