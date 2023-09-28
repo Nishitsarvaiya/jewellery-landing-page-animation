@@ -15,6 +15,7 @@ export const titleLetter = {
 	initial: {
 		y: "100%",
 		scale: 1.5,
+		rotate: 10,
 	},
 	animate: {
 		y: 0,
@@ -33,5 +34,15 @@ export const fadeInDown = {
 		y: 0,
 		opacity: 1,
 		transition: { ...TRANSITION, duration: 0.6 },
+	},
+};
+
+export const imageSlideIn = {
+	initial: {
+		clipPath: "inset(0% 0% 100% 0%)",
+	},
+	animate: {
+		clipPath: "inset(0% 0% 0% 0%)",
+		transition: TRANSITION,
 	},
 };

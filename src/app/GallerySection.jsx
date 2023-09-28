@@ -1,5 +1,6 @@
 "use client";
 
+import { imageSlideIn } from "@/lib/motion-animations";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
@@ -38,7 +39,7 @@ export default function GallerySection() {
 					ease: "linear",
 				},
 				"tl"
-			).to(galleryImages.current, { xPercent: -30, ease: "linear" }, "tl");
+			).to(galleryImages.current, { xPercent: -30 }, "tl");
 
 			const resetSkew = () => gsap.to(".gallery-image", { skewX: 0, duration: 0.5, ease: "power3.out" });
 
@@ -75,7 +76,12 @@ export default function GallerySection() {
 			<div className='gallery-wrapper'>
 				<div className='gallery' ref={gallery}>
 					{IMAGES.map((image, idx) => (
-						<motion.div className='gallery-image' key={idx}>
+						<motion.div
+							className='gallery-image'
+							key={idx}
+							initial={imageSlideIn.initial}
+							whileInView={imageSlideIn.animate}
+							viewport={{ once: true }}>
 							<div className='gallery-image-inner' ref={(ref) => (galleryImages.current[idx] = ref)}>
 								<Image src={image} fill style={{ objectFit: "cover" }} alt='' />
 							</div>

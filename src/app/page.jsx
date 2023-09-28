@@ -4,6 +4,7 @@ import useLocoScroll from "@/hooks/useLocoScroll";
 import { motion } from "framer-motion";
 import HeroSection from "./HeroSection";
 import GallerySection from "./GallerySection";
+import AboutSection from "./AboutSection";
 
 export default function Home() {
 	useLocoScroll();
@@ -12,6 +13,7 @@ export default function Home() {
 		<motion.main initial='initial' animate='animate'>
 			<HeroSection />
 			<GallerySection />
+			<AboutSection />
 		</motion.main>
 	);
 }
