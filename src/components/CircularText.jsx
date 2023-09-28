@@ -1,19 +1,23 @@
-import CircleType from 'circletype';
-import { useEffect, useRef } from 'react';
+"use client";
+
+import CircleType from "circletype";
+import { useEffect, useRef } from "react";
 
 export default function CircularText({ text }) {
 	const circular = useRef(null);
 	const rotated = useRef(null);
 
 	useEffect(() => {
-		const circularText = new CircleType(circular.current).dir(-1).radius(50);
+		const circularText = new CircleType(rotated.current).dir(-1);
+		circular.current.style.animation = "rotate360 5000ms linear infinite";
 	}, []);
 
 	return (
 		<div className='circular-text' ref={circular}>
-			<div className='rotated' ref={rotated}>
-				{text}&nbsp;&#8226;&nbsp;{text}&nbsp;&#8226;&nbsp;{text}&nbsp;&#8226;&nbsp;
-			</div>
+			<span className='rotated' ref={rotated}>
+				{" "}
+				{text} &#8226; {text} &#8226; {text} &#8226;{" "}
+			</span>
 		</div>
 	);
 }

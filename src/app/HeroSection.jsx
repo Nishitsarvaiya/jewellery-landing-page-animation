@@ -1,22 +1,22 @@
-import { titleItem, titleLetter, TRANSITION } from '@/lib/motion-animations';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import CircularText from '@/components/CircularText';
+import CircularText from "@/components/CircularText";
+import { titleItem, titleLetter, TRANSITION } from "@/lib/motion-animations";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function HeroSection() {
 	return (
 		<section className='hero-section' data-scroll-section>
 			<div className='container'>
 				<h1 className='hero-title'>
-					<motion.div variants={titleItem} className='hero-title-phrase'>
-						{'DISCOVER'.split('').map((l, idx) =>
-							l === 'O' ? (
+					<motion.div variants={titleItem} className='hero-title-phrase' data-scroll data-scroll-speed='-0.06'>
+						{"DISCOVER".split("").map((l, idx) =>
+							l === "O" ? (
 								<motion.div
 									className='video-wrapper'
 									initial={{ scale: 0 }}
 									animate={{
 										scale: 1,
-										transition: { ...TRANSITION, delay: 1 },
+										transition: { ...TRANSITION, delay: 0.5 },
 									}}
 									key={idx}>
 									<div className='image' data-scroll data-scroll-speed='0.06'>
@@ -34,9 +34,9 @@ export default function HeroSection() {
 							)
 						)}
 					</motion.div>
-					<motion.div variants={titleItem} className='hero-title-phrase'>
-						{"WORLD'S BEST".split('').map((l, idx) =>
-							l === ' ' ? (
+					<motion.div variants={titleItem} className='hero-title-phrase' data-scroll data-scroll-speed='-0.1'>
+						{"WORLD'S BEST".split("").map((l, idx) =>
+							l === " " ? (
 								<motion.span variants={titleLetter} key={idx}>
 									&nbsp;
 								</motion.span>
@@ -47,15 +47,17 @@ export default function HeroSection() {
 							)
 						)}
 					</motion.div>
-					<motion.div variants={titleItem} className='hero-title-phrase'>
-						{'JEWELLERY'.split('').map((l, idx) => (
+					<motion.div variants={titleItem} className='hero-title-phrase' data-scroll data-scroll-speed='-0.14'>
+						{"JEWELLERY".split("").map((l, idx) => (
 							<motion.span variants={titleLetter} key={idx}>
 								{l}
 							</motion.span>
 						))}
 					</motion.div>
 				</h1>
-				<CircularText text={'Fashion Brand'} />
+				<div className='hero-circular-text' data-scroll data-scroll-orientation='horizontal' data-scroll-speed='0.2'>
+					<CircularText text={"Fashion Brand"} />
+				</div>
 			</div>
 		</section>
 	);

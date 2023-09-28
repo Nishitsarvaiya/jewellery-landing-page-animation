@@ -3,6 +3,12 @@
 	--fg: #363636;
 }
 
+@keyframes rotate360 {
+	100% {
+		rotate: 360deg;
+	}
+}
+
 *,
 *::before,
 *::after {
@@ -21,6 +27,7 @@ body {
 	min-height: 1000vh;
 	background-color: var(--bg);
 	color: var(--fg);
+	overflow-x: hidden;
 }
 
 button,
@@ -87,7 +94,7 @@ input {
 					cursor: pointer;
 
 					&::before {
-						content: '';
+						content: "";
 						position: absolute;
 						border-top: 5px solid transparent;
 						border-bottom: 5px solid transparent;
@@ -111,9 +118,38 @@ input {
 	}
 }
 
-.circular-text {
+.hero-circular-text {
 	position: absolute;
-	right: 5%;
+	right: 10%;
+	transform-origin: center;
+}
+
+.circular-text {
+	position: relative;
+
+	&::after {
+		content: "";
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		width: 0.75em;
+		height: 0.75em;
+		background-color: var(--fg);
+		border-radius: 50%;
+	}
+
+	.rotated {
+		span {
+			display: inline-block;
+			line-height: 1;
+			transform-origin: center;
+
+			&:last-child {
+				margin-right: 1em;
+			}
+		}
+	}
 }
 
 .hero-section {
@@ -158,6 +194,7 @@ input {
 .gallery-section {
 	height: 100vh;
 	margin-top: 120px;
+	overflow-x: hidden;
 
 	.gallery-wrapper {
 		padding-block: 60px;
@@ -174,16 +211,6 @@ input {
 			&-image {
 				overflow: hidden;
 				position: relative;
-
-				span {
-					position: absolute;
-					left: 0;
-					top: -1.6em;
-					font-family: var(--font-melodrama);
-					font-size: 2rem;
-					font-weight: 600;
-					text-transform: uppercase;
-				}
 
 				&-inner {
 					width: 150%;
