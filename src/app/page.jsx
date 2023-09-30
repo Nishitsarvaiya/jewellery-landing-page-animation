@@ -1,10 +1,11 @@
-"use client";
+'use client';
 
-import useLocoScroll from "@/hooks/useLocoScroll";
-import { motion } from "framer-motion";
-import HeroSection from "./HeroSection";
-import GallerySection from "./GallerySection";
-import AboutSection from "./AboutSection";
+import useLocoScroll from '@/hooks/useLocoScroll';
+import { motion } from 'framer-motion';
+import HeroSection from './HeroSection';
+import GallerySection from './GallerySection';
+import AboutSection from './AboutSection';
+import CollectionSection from './CollectionSection';
 
 export default function Home() {
 	useLocoScroll();
@@ -14,6 +15,7 @@ export default function Home() {
 			<HeroSection />
 			<GallerySection />
 			<AboutSection />
+			<CollectionSection />
 		</motion.main>
 	);
 }

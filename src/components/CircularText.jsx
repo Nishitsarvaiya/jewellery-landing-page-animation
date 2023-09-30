@@ -1,7 +1,8 @@
-"use client";
+'use client';
 
-import CircleType from "circletype";
-import { useEffect, useRef } from "react";
+import CircleType from 'circletype';
+import { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 
 export default function CircularText({ text }) {
 	const circular = useRef(null);
@@ -9,15 +10,16 @@ export default function CircularText({ text }) {
 
 	useEffect(() => {
 		const circularText = new CircleType(rotated.current).dir(-1);
-		circular.current.style.animation = "rotate360 5000ms linear infinite";
+		circular.current.style.opacity = 1;
+		circular.current.style.animation = 'rotate360 5000ms linear infinite';
 	}, []);
 
 	return (
-		<div className='circular-text' ref={circular}>
+		<motion.div className='circular-text' ref={circular}>
 			<span className='rotated' ref={rotated}>
-				{" "}
-				{text} &#8226; {text} &#8226; {text} &#8226;{" "}
+				{' '}
+				{text} &#8226; {text} &#8226; {text} &#8226;{' '}
 			</span>
-		</div>
+		</motion.div>
 	);
 }

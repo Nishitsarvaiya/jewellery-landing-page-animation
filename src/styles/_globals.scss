@@ -45,6 +45,39 @@ input {
 	}
 }
 
+@keyframes animateDash {
+	to {
+	}
+}
+
+.btn {
+	display: inline-block;
+	position: relative;
+	font-size: 2rem;
+	cursor: pointer;
+
+	svg {
+		position: absolute;
+		width: 150%;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		stroke-dasharray: 1000;
+		stroke-dashoffset: 1000;
+		pointer-events: none;
+	}
+
+	&:hover {
+		svg {
+			stroke-dashoffset: 0;
+		}
+	}
+
+	@include mq(992px) {
+		font-size: 1.6rem;
+	}
+}
+
 .header {
 	padding-top: 40px;
 
@@ -94,7 +127,7 @@ input {
 					cursor: pointer;
 
 					&::before {
-						content: "";
+						content: '';
 						position: absolute;
 						border-top: 5px solid transparent;
 						border-bottom: 5px solid transparent;
@@ -126,9 +159,10 @@ input {
 
 .circular-text {
 	position: relative;
+	opacity: 0;
 
 	&::after {
-		content: "";
+		content: '';
 		position: absolute;
 		left: 50%;
 		top: 50%;
@@ -267,17 +301,18 @@ input {
 	}
 }
 
+.title {
+	text-align: center;
+	font-family: var(--font-melodrama);
+	font-size: clamp(6.4rem, 13vw, 14rem);
+	line-height: 1.2;
+	font-weight: 400;
+	margin-bottom: 0.2em;
+}
+
 .about-section {
 	padding: 200px 0;
 	text-align: center;
-
-	.about-title {
-		font-family: var(--font-melodrama);
-		font-size: clamp(6.4rem, 13vw, 14rem);
-		line-height: 1.2;
-		font-weight: 400;
-		margin-bottom: 0.2em;
-	}
 
 	p {
 		font-size: 2.4rem;
@@ -288,6 +323,73 @@ input {
 
 		@include mq(992px) {
 			font-size: 1.6rem;
+		}
+	}
+
+	.about-grid {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		margin-top: 100px;
+
+		.col {
+			.about-image {
+				width: 100%;
+				overflow: hidden;
+
+				span {
+					position: absolute;
+					top: -2em;
+					left: 0;
+					font-family: var(--font-melodrama);
+					font-size: 1.8rem;
+					font-weight: 500;
+				}
+
+				&--inner {
+					width: 100%;
+					height: 160%;
+					position: relative;
+				}
+			}
+			&:first-child {
+				grid-column: 1 / 5;
+
+				@include mq(992px) {
+					grid-column: 1 / -1;
+				}
+
+				.about-image {
+					height: 65vh;
+					margin-bottom: 80px;
+
+					@include mq(992px) {
+						height: 80vh;
+						margin-bottom: 40px;
+					}
+				}
+
+				p {
+					padding-inline: 1em;
+					margin-bottom: 80px;
+
+					@include mq(992px) {
+						margin-bottom: 40px;
+					}
+				}
+			}
+
+			&:last-child {
+				grid-column: 7 / -1;
+
+				@include mq(992px) {
+					grid-column: 1 / -1;
+				}
+
+				.about-image {
+					height: 100vh;
+					margin-top: 100px;
+				}
+			}
 		}
 	}
 }

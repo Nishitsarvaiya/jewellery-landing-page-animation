@@ -1,4 +1,4 @@
-export const TRANSITION = { duration: 1.6, ease: [0.6, 0.01, 0.12, 0.96] };
+export const TRANSITION = { duration: 1.6, ease: [0.6, 0.01, 0.1, 0.96] };
 export const titleItem = {
 	initial: {
 		y: 0,
@@ -13,7 +13,7 @@ export const titleItem = {
 
 export const titleLetter = {
 	initial: {
-		y: "100%",
+		y: '100%',
 		scale: 1.5,
 		rotate: 10,
 	},
@@ -27,7 +27,7 @@ export const titleLetter = {
 
 export const fadeInDown = {
 	initial: {
-		y: "-100%",
+		y: '-100%',
 		opacity: 0,
 	},
 	animate: {
@@ -39,10 +39,10 @@ export const fadeInDown = {
 
 export const imageSlideIn = {
 	initial: {
-		clipPath: "inset(0% 0% 100% 0%)",
+		clipPath: 'inset(0% 0% 100% 0%)',
 	},
 	animate: {
-		clipPath: "inset(0% 0% 0% 0%)",
+		clipPath: 'inset(0% 0% 0% 0%)',
 		transition: TRANSITION,
 	},
 };
