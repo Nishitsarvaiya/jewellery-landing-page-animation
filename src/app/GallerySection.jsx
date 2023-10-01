@@ -1,7 +1,7 @@
 'use client';
 
 import { imageSlideIn } from '@/lib/motion-animations';
-import { motion, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Image from 'next/image';
@@ -41,7 +41,7 @@ export default function GallerySection() {
 				'tl'
 			).to(galleryImages.current, { xPercent: -30 }, 'tl');
 
-			const resetSkew = () => gsap.to('.gallery-image', { skewX: 0, duration: 0.5, ease: 'power3.out' });
+			// const resetSkew = () => gsap.to('.gallery-image', { skewX: 0, duration: 0.5, ease: 'power3.out' });
 
 			ScrollTrigger.create({
 				trigger: gallerySection.current,
@@ -50,21 +50,21 @@ export default function GallerySection() {
 				pin: true,
 				animation: tl,
 				scrub: 1,
-				onLeave: resetSkew,
-				onLeaveBack: resetSkew,
-				onEnter: resetSkew,
-				onEnterBack: resetSkew,
-				onUpdate: (self) => {
-					scroll.current.current = window.scrollY;
-					// scroll.current.previous = lerp(scroll.current.current, scroll.current.previous, scroll.current.ease);
-					scroll.current.previous += (scroll.current.current - scroll.current.previous) * scroll.current.ease;
-					scroll.current.rounded = Math.round(scroll.current.previous * 100) / 100;
-					const diff = scroll.current.current - scroll.current.rounded;
-					const acc = diff / window.innerWidth;
-					const vel = +acc;
-					const skew = vel * 20;
-					gsap.to('.gallery-image', { skewX: skew, duration: 0.5, ease: 'power3.out' });
-				},
+				// onLeave: resetSkew,
+				// onLeaveBack: resetSkew,
+				// onEnter: resetSkew,
+				// onEnterBack: resetSkew,
+				// onUpdate: (self) => {
+				// 	scroll.current.current = window.scrollY;
+				// 	// scroll.current.previous = lerp(scroll.current.current, scroll.current.previous, scroll.current.ease);
+				// 	scroll.current.previous += (scroll.current.current - scroll.current.previous) * scroll.current.ease;
+				// 	scroll.current.rounded = Math.round(scroll.current.previous * 100) / 100;
+				// 	const diff = scroll.current.current - scroll.current.rounded;
+				// 	const acc = diff / window.innerWidth;
+				// 	const vel = +acc;
+				// 	const skew = vel * 20;
+				// 	gsap.to('.gallery-image', { skewX: skew, duration: 0.5, ease: 'power3.out' });
+				// },
 			});
 
 			window.addEventListener('resize', () => ScrollTrigger.refresh(), { passive: true });

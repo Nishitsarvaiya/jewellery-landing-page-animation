@@ -6,9 +6,14 @@ import HeroSection from './HeroSection';
 import GallerySection from './GallerySection';
 import AboutSection from './AboutSection';
 import CollectionSection from './CollectionSection';
+import StoreSection from './StoreSection';
+import useCustomCursor from '@/hooks/useCustomCursor';
+import { useRef } from 'react';
 
 export default function Home() {
+	const cursorRef = useRef();
 	useLocoScroll();
+	const cursor = useCustomCursor();
 
 	return (
 		<motion.main initial='initial' animate='animate'>
@@ -16,6 +21,7 @@ export default function Home() {
 			<GallerySection />
 			<AboutSection />
 			<CollectionSection />
+			<StoreSection />
 		</motion.main>
 	);
 }

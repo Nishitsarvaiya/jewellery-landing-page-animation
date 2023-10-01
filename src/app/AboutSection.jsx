@@ -2,25 +2,14 @@
 
 import VariableLetters from '@/components/VariableLetters';
 import { TRANSITION, imageSlideIn } from '@/lib/motion-animations';
-import { animate, motion, useMotionValue } from 'framer-motion';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import { motion, useMotionValue } from 'framer-motion';
 import Image from 'next/image';
-import { useLayoutEffect, useRef } from 'react';
+import { useRef } from 'react';
 
 export default function AboutSection() {
 	let mouseX = useMotionValue(Infinity);
 	const container = useRef(null);
 	const images = useRef([]);
-
-	useLayoutEffect(() => {
-		gsap.registerPlugin(ScrollTrigger);
-		const ctx = gsap.context(() => {
-			animate();
-		}, container);
-
-		return () => ctx.revert();
-	}, []);
 
 	return (
 		<section className='about-section' data-scroll-section ref={container}>

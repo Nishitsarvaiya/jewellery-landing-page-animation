@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { fadeInDown } from "@/lib/motion-animations";
-import { motion } from "framer-motion";
+import { fadeInDown } from '@/lib/motion-animations';
+import { motion } from 'framer-motion';
 
 export default function Header() {
 	return (
