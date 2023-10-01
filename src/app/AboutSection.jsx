@@ -18,8 +18,8 @@ export default function AboutSection() {
 					<VariableLetters text='ABOUT US' mouseX={mouseX} />
 				</h2>
 				<p>
-					Sera designs modern, unisex jewellery pieces that are handcrafted from recycled precious metals. In an industry that's
-					focused on trends, we believe in timelessness.
+					Sera designs modern, unisex jewellery pieces that are handcrafted from recycled precious metals. In an industry
+					that&apos;s focused on trends, we believe in timelessness.
 				</p>
 				<div className='about-grid'>
 					<div className='col'>
